@@ -27,8 +27,8 @@ def load_and_chunk_pdf(pdf_path: str) -> list:
     loader = PyPDFLoader(pdf_path)
     docs = loader.load()
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
+        chunk_size=CHUNK_SIZE,
+        chunk_overlap=CHUNK_OVERLAP
         separators=["\n\n", "\n", ".", " "]
     )
     return splitter.split_documents(docs)
